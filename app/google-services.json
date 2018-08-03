@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "691820688206",
+    "firebase_url": "https://mutabaah-yaumiyah23.firebaseio.com",
+    "project_id": "mutabaah-yaumiyah23",
+    "storage_bucket": "mutabaah-yaumiyah23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691820688206:android:0f6f61e923c122c6",
+        "android_client_info": {
+          "package_name": "id.rafidewi.mutabaahyaumiyah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691820688206-hd1dbo8dtnvmu1lkhlqkvptlvnpkk6iu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rafidewi.mutabaahyaumiyah",
+            "certificate_hash": "85782db0c1413cf4b9dc3eb87c8dec7e8b160871"
+          }
+        },
+        {
+          "client_id": "691820688206-n0oqlk2a8340eu3bvceodsag03se0mm7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8A0xLw8_xaGTFjLymLuS7pd5CsoGzeYg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691820688206-n0oqlk2a8340eu3bvceodsag03se0mm7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

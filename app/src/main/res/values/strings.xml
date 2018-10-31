@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MutabaahYaumiyah</string>
+    <string name="title_activity_detail_kegiatan_user_lain">DetailKegiatanUserLain</string>
 </resources>

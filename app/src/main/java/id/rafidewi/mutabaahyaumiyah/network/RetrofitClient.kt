@@ -10,11 +10,9 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 
 class RetrofitClient {
-
     companion object {
-
         private var retrofit: Retrofit? = null
-        val BASE_URL_API = "http://muslimsalat.com/"
+        val BASE_URL_API = "http://rafilutfansyah.ml/mutabaah-yaumiyah/"
 
         fun getClient(): BaseApiService {
             val interceptor = HttpLoggingInterceptor()

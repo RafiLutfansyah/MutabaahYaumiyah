@@ -7,12 +7,12 @@ import android.content.Intent
 import android.net.Uri
 import android.view.View
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseUser
 import id.rafidewi.mutabaahyaumiyah.views.main.MainActivity
 import id.rafidewi.mutabaahyaumiyah.views.main.MainPresenter
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), LoginView {
-
     private var presenter: LoginPresenter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +58,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
         loading.visibility = View.INVISIBLE
     }
 
-    override fun onSuccessLogin(name: String, email: String, photoUrl: Uri) {
+    override fun onResponse(user: FirebaseUser) {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }

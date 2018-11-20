@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseUser
 import id.rafidewi.mutabaahyaumiyah.views.main.MainActivity
 import id.rafidewi.mutabaahyaumiyah.views.main.MainPresenter
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.intentFor
 
 class LoginActivity : AppCompatActivity(), LoginView {
     private var presenter: LoginPresenter? = null
@@ -21,12 +22,35 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
         initPresenter()
         onAttachView()
+    }
+
+    private fun initPresenter() {
+        presenter = LoginPresenter(this)
+    }
+
+    override fun onAttachView() {
+        presenter!!.onAttach(this)
 
         signInButton.setOnClickListener {
-                signInButton.isEnabled = false
-                loading.visibility = View.VISIBLE
-                presenter!!.signIn()
+            signInButton.isEnabled = false
+            loading.visibility = View.VISIBLE
+            presenter!!.signIn()
         }
+    }
+
+    override fun onDetachView() {
+        presenter!!.onDetach()
+    }
+
+    override fun onDestroy() {
+        onDetachView()
+        super.onDestroy()
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        presenter!!.checkUser()
     }
 
     override fun signIn(signInIntent: Intent, RC_SIGN_IN: Int) {
@@ -58,25 +82,8 @@ class LoginActivity : AppCompatActivity(), LoginView {
         loading.visibility = View.INVISIBLE
     }
 
-    override fun onResponse(user: FirebaseUser) {
-        startActivity(Intent(this, MainActivity::class.java))
+    override fun onResponse() {
+        startActivity(intentFor<MainActivity>())
         finish()
-    }
-
-    private fun initPresenter() {
-        presenter = LoginPresenter(this)
-    }
-
-    override fun onAttachView() {
-        presenter!!.onAttach(this)
-    }
-
-    override fun onDetachView() {
-        presenter!!.onDetach()
-    }
-
-    override fun onDestroy() {
-        onDetachView()
-        super.onDestroy()
     }
 }

@@ -11,5 +11,5 @@ interface LoginView : View {
     fun onActivityResultError()
     fun signInWithCredentialSuccess()
     fun signInWithCredentialError()
-    fun onResponse(user: FirebaseUser)
+    fun onResponse()
 }

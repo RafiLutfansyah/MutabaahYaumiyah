@@ -24,7 +24,8 @@
         <activity android:name=".views.kegiatanlalu.KegiatanLaluActivity" />
         <activity android:name=".views.userlain.UserLainActivity" />
         <activity android:name=".views.kegiatanuserlain.KegiatanUserLainActivity" />
-        <activity android:name=".views.detailkegiatanuserlain.DetailKegiatanUserLainActivity"/>
+        <activity android:name=".views.detailkegiatanuserlain.DetailKegiatanUserLainActivity" />
+        <activity android:name=".views.TentangActivity"></activity>
     </application>
 
 </manifest>

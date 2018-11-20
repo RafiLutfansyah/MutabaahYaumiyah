@@ -2,6 +2,7 @@ package id.rafidewi.mutabaahyaumiyah.views.login
 
 import android.content.Context
 import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
 import android.util.Log
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -41,6 +42,13 @@ class LoginPresenter(val context: Context) : Presenter<LoginView> {
 
     override fun onDetach() {
         mView = null
+    }
+
+    fun checkUser() {
+        val user = mAuth.currentUser
+        if(user != null) {
+            mView!!.onResponse()
+        }
     }
 
     fun signIn() {
@@ -86,7 +94,7 @@ class LoginPresenter(val context: Context) : Presenter<LoginView> {
             override fun onResponse(call: Call<User>?, response: Response<User>?) {
                 val response = response!!.body()
                 Log.d("onResponse", response.toString())
-                mView!!.onResponse(user)
+                mView!!.onResponse()
             }
 
             override fun onFailure(call: Call<User>?, t: Throwable?) {
@@ -99,7 +107,7 @@ class LoginPresenter(val context: Context) : Presenter<LoginView> {
     private fun setUser(user: FirebaseUser) {
         mApiService.setUser(user.email!!, user.displayName!!, user.photoUrl!!.toString()).enqueue(object :Callback<User>{
             override fun onResponse(call: Call<User>, response: Response<User>) {
-                mView!!.onResponse(user)
+                mView!!.onResponse()
             }
             override fun onFailure(call: Call<User>, t: Throwable) {
                 Log.d("onFailure", t.toString())
